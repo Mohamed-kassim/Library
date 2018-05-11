@@ -1,5 +1,7 @@
 const express = require('express');
+const Book = require('../models/books');
 const router = express.Router();
+
 
 router.get('/', function (req, res) {  
     res.send(
@@ -10,6 +12,13 @@ router.get('/', function (req, res) {
 });
 
 router.post('/:id', function (req, res) {  
+    // var book = new Book(req.body);
+    // Book.save();
+    id = [{id : req.query.id}];
+    body = req.body;
+    book = id.concat(body);
+    console.log (book);
+    Book.create(req.body);
     res.send(
         {
         type:'POST',

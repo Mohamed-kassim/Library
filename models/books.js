@@ -2,21 +2,26 @@ var mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const bookSchema = new Schema({
+    // id : {
+    //     type : Number,
+    //     required :[true, "no id no book"]
+    // },
     name : {
-        type : string,
+        type : String,
         required : [true, 'Name field is required']
     },
     author : {
-        type : string,
+        type : String,
         required : [true, 'author field is required']
     },
     borrower : {
-        type : string , 
+        type : String , 
     },
-    availabe : {
-        type : string , 
+    available : {
+        type : Boolean , 
+        default : false,
         required : [true, 'author field is required']
     }
 });
 const Books = mongoose.model('books', bookSchema);
-model.exports = Books;
+module.exports = Books;
